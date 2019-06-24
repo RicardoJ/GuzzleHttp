@@ -10,7 +10,21 @@
 | contains the "web" middleware group. Now create something great!
 |
 */
+use GuzzleHttp\Client;
+
 
 Route::get('/', function () {
-    return view('welcome');
+    
+$client = new Client([
+    // Base URI is used with relative requests
+    'base_uri' => 'http://localhost:5001/api/v1/',
+    // You can set any number of default request options.
+    'timeout'  => 2.0,
+]);
+//$response = $client->request('GET', 'projects/5cfde3043c012622d294c4a6/integration/planning');
+    $response = $client->request('GET', 'projects');
+
+    return json_decode( $response->getBody()->getContents() );
+
+    //return view('welcome');
 });
