@@ -6,7 +6,7 @@ use Illuminate\Http\Request;
 
 class PlanningController extends Controller
 {
-    public function index(){
+    public function showAll($id){
     
             $client = new Client([
                 
@@ -14,8 +14,6 @@ class PlanningController extends Controller
                
                 'timeout'  => 2.0,
             ]);
-            //$response = $client->request('GET', 'projects/5cfde3043c012622d294c4a6/integration/planning');
-         
                 $response = $client->request('GET', "projects/{$id}/integration/planning");
             
                 return json_decode( $response->getBody()->getContents() );
