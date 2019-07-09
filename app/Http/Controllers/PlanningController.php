@@ -1,22 +1,21 @@
 <?php
 
 namespace App\Http\Controllers;
-use GuzzleHttp\Client;
+use App\Repositories\Planning;
+
 use Illuminate\Http\Request;
 
-class PlanningController extends Controller
-{
+class PlanningController extends Controller{
+
+    protected $planning;
+    public function __construct(Planning $planning){
+        $this->planning = $planning;
+    }
     public function showAll($id){
-    
-            $client = new Client([
-                
-                'base_uri' => 'http://localhost:5001/api/v1/',
-               
-                'timeout'  => 2.0,
-            ]);
-                $response = $client->request('GET', "projects/{$id}/integration/planning");
-            
-                return json_decode( $response->getBody()->getContents() );
+
+        $planning =  $this->planning->listAll($id);
+        return $planning;
+
            
     }
 }
