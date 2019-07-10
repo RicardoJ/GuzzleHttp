@@ -1,16 +1,12 @@
 <?php
 
 namespace App\Repositories;
-use GuzzleHttp\Client;
-class Projects{
 
-protected $client;
-public function __construct(Client $client ){
-    $this->client =  $client;
-}
+class Projects extends GuzzleHttpRequest{
+
      public function listAll(){
-            $response = $this->client->request('GET', 'projects');
-            return json_decode( $response->getBody()->getContents() );
+         return $this->get('projects');
+   
      }
-    
+
 }
