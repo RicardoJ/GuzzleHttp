@@ -18,13 +18,13 @@ Route::get('/projects/{id}/acquisitions/acquisitions' ,'AcquisitionController@sh
 //provider
 Route::get('/projects/{id}/acquisitions/providers' ,'ProviderController@showAll');
 //team
-
+Route::get('/projects/{id}/resources/teams' ,'TeamController@showAll');
 //teamMemebers
-
+Route::get('/projects/{id}/resources/teamMembers' ,'TeamMembersController@showAll');
 //teamManagement
-
+Route::get('/projects/{id}/resources/teamManagement' ,'TeamManagementController@showAll');
 //resources
-
+Route::get('/projects/{id}/resources/resources' ,'ResourcesController@showAll');
 //activies
-
+Route::get('/projects/{id}/resources/activities' ,'ActivitiesController@showAll');
     
