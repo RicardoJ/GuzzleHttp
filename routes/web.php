@@ -14,9 +14,9 @@ Route::get('/projects/{id}/integration/learnedLessons' ,'LearnedLessonsControlle
 //changes
 Route::get('/projects/{id}/integration/changes' ,'ChangeController@showAll');
 //acquisitions
-
+Route::get('/projects/{id}/acquisitions/acquisitions' ,'AcquisitionController@showAll');
 //provider
-
+Route::get('/projects/{id}/acquisitions/providers' ,'ProviderController@showAll');
 //team
 
 //teamMemebers
